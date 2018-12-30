@@ -1,0 +1,48 @@
+<html>
+	<head>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.kingdomhearts.com/favicon.ico"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/LoadGo/2.2/loadgo-nojquery.min.js"></script>
+    <title>Kingdom Hearts III Countdown</title>
+	</head>
+	<body>
+    <ul>
+      <li><div id="days">Days:</div></li>
+      <li><div id="hours">Hours:</div></li>
+      <li><div id="minutes">Minutes:</div></li>
+      <li><div id="seconds">Seconds:</div></li>
+    </ul> 
+    <img id="chars" src="static/kh3-chars.png"></img>
+    <div class="container">
+      <h1>Kingdom Hearts III</h1>
+      <h2>1.25.2019</h2>
+    </div>
+    <script>
+      var cd = setInterval(function() {
+        var currentDate = new Date();
+        var futureDate  = new Date(2019, 0, 25);
+        var diff = futureDate.getTime() - currentDate.getTime();
+  
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+        document.getElementById("days").innerHTML = "Days: " + days;
+        document.getElementById("hours").innerHTML = "Hours: " + hours;
+        document.getElementById("minutes").innerHTML = "Minutes: " + minutes;
+        document.getElementById("seconds").innerHTML = "Seconds: " + seconds;
+      }, 1000);
+    </script>	
+    <script>
+      var image = document.getElementById("chars");
+        image.onload = function () {
+          Loadgo.init(this, {
+          'direction': 'bt'
+          });
+          Loadgo.loop(this, 15);
+        };
+    </script>
+	</body>
+</html>
